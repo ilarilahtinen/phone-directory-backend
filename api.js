@@ -24,13 +24,13 @@ let persons= [
   ]
 
   router.get('/persons', (req, res) => {
-    res.json(persons)
+    res.status(200).json(persons)
   })
   router.get('/persons/:id', (req, res) => {
     const id = Number(req.params.id)
     const person = persons.find(person => person.id === id )
     if(person){
-      res.json(person)
+      res.status(200).json(person)
     } else {
       res.status(404).end()
     }
@@ -58,6 +58,6 @@ let persons= [
     }
     let newPerson={name,number,id}
     persons.push(newPerson)
-    res.json(newPerson)
+    res.status(201).json(newPerson)
   })
 module.exports=router
