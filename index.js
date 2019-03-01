@@ -4,7 +4,9 @@ const api = require('./api')
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
-
+app.get('/', (req,res)=>{
+  res.json({ok:"ok"})
+})
 app.use('/api',api)
 
 
