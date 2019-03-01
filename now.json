@@ -1,6 +1,6 @@
 {"version": 2,
     "name": "phone-directory-backend",
     "builds": [
-        { "src": "index.js", "use": "@now/node" }
+        { "src": "**/*.js", "use": "@now/node" },
     ]
   }
