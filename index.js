@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const path = require('path');
 const api = require('./api')
 const bodyParser = require('body-parser')
 
@@ -8,10 +9,10 @@ app.use(function(req,res,next){
   res.set("Access-Control-Allow-Origin","*")
   next()
 })
-app.use(express.static('build'));
+app.use(express.static(path.join(__dirname, 'build')));
 app.get('/', function(req, res) {
-   res.sendFile('build/index.html');
- });
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.use('/api',api)
 
 
