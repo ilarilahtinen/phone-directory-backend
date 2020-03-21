@@ -8,7 +8,7 @@ app.use(function(req,res,next){
   res.set("Access-Control-Allow-Origin","*")
   next()
 })
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static('build'));
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
