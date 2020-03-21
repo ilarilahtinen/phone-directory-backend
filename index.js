@@ -8,14 +8,13 @@ app.use(function(req,res,next){
   res.set("Access-Control-Allow-Origin","*")
   next()
 })
-app.get('/', (req,res)=>{
-  res.json({ok:"ok"})
-})
+app.use(express.static('build'))
+
 app.use('/api',api)
 
 
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
